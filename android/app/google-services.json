@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "974866850892",
+    "project_id": "krishi-haat-dc0dd",
+    "storage_bucket": "krishi-haat-dc0dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974866850892:android:33ba1d23eb80dd769f40e9",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyoILQKDxdc7o3IN6x7wPsI1zs9FlBhl8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
