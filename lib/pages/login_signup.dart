@@ -3,7 +3,7 @@ import 'package:flutter_application_1/Uicomponent/helpful.dart';
 import 'package:flutter_application_1/Uicomponent/text.dart';
 import 'package:flutter_application_1/pages/loginpg.dart';
 import 'package:flutter_application_1/pages/signup.dart';
-import 'package:flutter_application_1/signup.dart';
+
 class LoginSignup extends StatelessWidget {
   final Size size;
    const LoginSignup({super.key,required this.size});
