@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
 import 'package:flutter_application_1/Uicomponent/text.dart';
+import 'package:flutter_application_1/pages/homepage.dart';
 import 'package:flutter_application_1/pages/signup.dart';
 class Loginpg extends StatefulWidget {
  const Loginpg({super.key});
@@ -67,7 +68,9 @@ class _LoginpgState extends State<Loginpg> {
               ],
             ),
             InkWell(child: button(size: size, text: "Log In", color: green),
-            onTap: () => 0,
+            onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context){
+              return HomeScreen();
+            })),
             ),
             SizedBox(height: size.width*0.08,),
             displaytxt(s: "Or"),

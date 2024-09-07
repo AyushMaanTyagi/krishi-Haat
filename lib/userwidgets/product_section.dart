@@ -48,7 +48,7 @@ class ProductSection extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: ProductCard(product: products[index]),
+                child: ProductCard(product: products[index],title: title,),
               );
             },
           ),

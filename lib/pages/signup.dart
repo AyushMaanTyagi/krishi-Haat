@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
 import 'package:flutter_application_1/Uicomponent/text.dart';
+import 'package:flutter_application_1/pages/homepage.dart';
 class SignUppg extends StatefulWidget {
+ 
  const SignUppg({super.key});
 
   @override
@@ -50,7 +52,9 @@ class _SignUppgState extends State<SignUppg> {
             SizedBox(height: size.width*0.04,),
             
             InkWell(child: button(size: size, text: "Sign Up", color: green),
-            onTap: () => 0,
+            onTap: () =>  Navigator.push(context,MaterialPageRoute(builder: (context){
+              return HomeScreen();
+            })),
             ),
             SizedBox(height: size.width*0.08,),
             displaytxt(s: "Or"),
