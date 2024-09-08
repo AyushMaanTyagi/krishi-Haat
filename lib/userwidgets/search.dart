@@ -11,12 +11,12 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Search"),
+        title: const Text("Search"),
         actions: [
           IconButton(onPressed:()
           {
             showSearch(context: context, delegate: CustomSearchDelegate(),);
-          }, icon:Icon(Icons.search))
+          }, icon:const Icon(Icons.search))
         ],
       ),
     );
@@ -66,7 +66,7 @@ List<Widget> buildActions(BuildContext context)
       {
         var result = matchquery[index];
         return   ListTile(
-         leading:matchquery.length==0?SizedBox(): Image.asset("assets/images/${matchquery[index].toLowerCase().trim()}.png"),
+         leading:matchquery.isEmpty?const SizedBox(): Image.asset("assets/images/${matchquery[index].toLowerCase().trim()}.png"),
           title: Text(result),
         );  
       },
@@ -88,7 +88,7 @@ List<Widget> buildActions(BuildContext context)
       itemBuilder: (context,index){
         var result =matchquery[index];
         return ListTile(
-          leading:matchquery.length==0?SizedBox(): Image.asset("assets/images/${matchquery[index].toLowerCase().trim()}.png"),
+          leading:matchquery.isEmpty?const SizedBox(): Image.asset("assets/images/${matchquery[index].toLowerCase().trim()}.png"),
           title: Text(result),
         );
       },);

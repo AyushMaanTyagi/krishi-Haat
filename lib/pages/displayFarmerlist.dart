@@ -5,7 +5,8 @@ import 'package:flutter_application_1/Models/CategoryModel.dart';
 import 'package:flutter_application_1/Models/farmerModel.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
 import 'package:flutter_application_1/Uicomponent/searchfarmer.dart';
-import 'package:flutter_application_1/Uicomponent/text.dart';
+import 'package:flutter_application_1/Uicomponent/textandbuttons.dart';
+import 'package:flutter_application_1/userwidgets/framerprofile.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class FarmerList extends StatefulWidget {
 
@@ -104,7 +105,7 @@ class _FarmerListState extends State<FarmerList> {
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
     return Scaffold(
-      body:Container(
+      body:SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: ListView.builder(
@@ -119,12 +120,12 @@ class _FarmerListState extends State<FarmerList> {
                 title: displaytxt(s: newlist[index].name,fw: FontWeight.bold,fs: 18),
                 subtitle: Column(
                   children: [
-                    displaytxt(s: crop),
-                    (cat=="Vegetables")?displaytxt(s:newlist[index].Farmerkicrops[0][crop]):displaytxt(s:newlist[index].Farmerkicrops[1][crop]),
+                    displaytxt(s: crop),//name of crop in farmer list
+                    (cat=="Vegetables")?displaytxt(s:newlist[index].Farmerkicrops[0][crop]):displaytxt(s:newlist[index].Farmerkicrops[1][crop]),//to dislay price of each crop based on the cat="veggi"or "friuts"
                   ],
                 ),
                 
-                trailing: Icon(FontAwesomeIcons.chevronRight,size: 20,),
+                trailing:  IconButton(icon: Icon(FontAwesomeIcons.chevronRight),iconSize: 20, onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context){return FarmerProfile(size: size, farmermodel: newlist[index]);}));  },),
                 hoverColor: blue,
                 dense: true,
                 

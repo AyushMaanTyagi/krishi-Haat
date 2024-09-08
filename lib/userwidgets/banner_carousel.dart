@@ -6,7 +6,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
 
 class BannerCarousel extends StatefulWidget {
-   const BannerCarousel({Key? key}) : super(key: key);
+   const BannerCarousel({super.key});
 
   @override
   State<BannerCarousel> createState() => _BannerCarouselState();
@@ -22,14 +22,14 @@ class _BannerCarouselState extends State<BannerCarousel> {
 
 void  startTimer()
 {
-  timer=Timer.periodic(Duration(seconds: 2), (timer){
+  timer=Timer.periodic(const Duration(seconds: 2), (timer){
     if(pageController.page==imagepath.length-1)
     {
-      pageController.animateToPage(0, duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
+      pageController.animateToPage(0, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
     }
     else
     {
-      pageController.nextPage(duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
+      pageController.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
 
     }
   });

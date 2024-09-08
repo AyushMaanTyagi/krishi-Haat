@@ -6,7 +6,7 @@ import '../userwidgets/product_section.dart';
 import '../userwidgets/bottom_navigation.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -15,13 +15,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: white,
       body: SafeArea(
         child: Column(
           children: [
-            const App_Bar(),
-            const Expanded(
+            App_Bar(text: "HOME PAGE"),
+            Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            const BottomNavigation(),
+            BottomNavigation(),
           ],
         ),
       ),

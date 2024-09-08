@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Uicomponent/textandbuttons.dart';
+import 'package:flutter_application_1/userwidgets/menueitems.dart';
 import 'package:flutter_application_1/userwidgets/search.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:popover/popover.dart';
 
 class BottomNavigation extends StatefulWidget {
   
   
-  const BottomNavigation({Key? key}) : super(key: key);
+  const BottomNavigation({super.key});
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();
@@ -67,14 +70,14 @@ class _BottomNavigationState extends State<BottomNavigation> {
                 press=2;
               });
               Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                return Search();
+                return const Search();
               }));
             } ,
           ),
           InkWell(
             child: _NavItem(
-              icon: Icons.person,
-              label: 'Profile',
+              icon: Icons.chat,
+              label: 'Chat AI',
               isActive: press==3?true:false,
             ),
             onTap: () {
@@ -93,6 +96,11 @@ class _BottomNavigationState extends State<BottomNavigation> {
               setState(() {
                 press=4;
               });
+              showPopover(context: context, bodyBuilder: (context)=>const Menueitems(),
+              width: MediaQuery.of(context).size.width*0.3,
+              height: MediaQuery.of(context).size.height*0.15
+              
+              );
             },
           ),
         ],
@@ -107,11 +115,11 @@ class _NavItem extends StatelessWidget {
   final bool isActive;
 
   const _NavItem({
-    Key? key,
+    super.key,
     required this.icon,
     required this.label,
     this.isActive = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

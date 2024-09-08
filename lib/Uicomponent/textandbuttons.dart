@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 Text displaytxt({required String s,FontWeight? fw, double? fs,Color? color})
@@ -26,39 +27,39 @@ Widget button({required Size size,required String text, required Color color})
   );
 }
 
-Widget Inputfile({label,obscureText=false,TextEditingController? controller,required String hintText})
+Widget Inputfile({label="value",obscureText=false,TextEditingController? controller,required String hintText})
 {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children:<Widget> 
     [
-      Text(label,style: TextStyle(
+      Text(label,style: const TextStyle(
         fontSize: 15,
         fontWeight:FontWeight.normal ,
         color: black
       ),),
-      SizedBox(height: 5,),
+      const SizedBox(height: 5,),
 
       TextField(
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: TextStyle(color: grey,fontWeight: FontWeight.w400),
-          contentPadding: EdgeInsets.symmetric(horizontal:10 , vertical:0 ),
+          hintStyle: const TextStyle(color: grey,fontWeight: FontWeight.w400),
+          contentPadding: const EdgeInsets.symmetric(horizontal:10 , vertical:0 ),
         enabledBorder:OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: grey
           ),
         ),
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
         borderSide: BorderSide(color: grey)
         )
         ),
         
       ),
-      SizedBox(height: 10,)
+      const SizedBox(height: 10,)
     ],
   );
 }
@@ -104,3 +105,13 @@ Widget facebookbutton(Size size)
     ),
   );
 }
+TextField Textfield({required TextEditingController value}) {
+    return TextField(
+                  controller: value,
+                  decoration: InputDecoration(
+                  hintText: "enter quantity in kg",
+                ),
+                keyboardType: TextInputType.number,
+                );
+}
+

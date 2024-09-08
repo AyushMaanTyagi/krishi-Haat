@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
-import 'package:flutter_application_1/Uicomponent/text.dart';
+import 'package:flutter_application_1/Uicomponent/textandbuttons.dart';
 import 'package:flutter_application_1/pages/loginpg.dart';
 import 'package:flutter_application_1/pages/signup.dart';
 
@@ -31,28 +31,28 @@ class LoginSignup extends StatelessWidget {
             height: size.height/2.8,
             decoration: BoxDecoration(
               border: Border.all(color: Colors.red,width: 2.0,style: BorderStyle.solid),
-              image: DecorationImage(
+              image: const DecorationImage(
               image:AssetImage("assets/images/ganeshji.JPG"),
               fit: BoxFit.contain
               )
             ),
           ),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
             InkWell(child: button(size: size,text:  "Log In",color:  green),
             
             onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context){
-              return Loginpg();
+              return const Loginpg();
             })),
             ),
-            SizedBox(height: 15,),
+            const SizedBox(height: 15,),
             InkWell(child: button(size: size,text:  "Sign Up",color:  white),
             
             onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context){
-              return SignUppg();
+              return const SignUppg();
             })),
             ),
           displaytxt(s: "Or"),
-           Divider(
+           const Divider(
             height: 15,
             thickness: 1,
             indent: 15,
@@ -60,7 +60,7 @@ class LoginSignup extends StatelessWidget {
            ),
            
            Googlebutton(size),
-           SizedBox(height: 8,),
+           const SizedBox(height: 8,),
            facebookbutton(size)
           ],
         ),

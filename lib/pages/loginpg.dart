@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
-import 'package:flutter_application_1/Uicomponent/text.dart';
+import 'package:flutter_application_1/Uicomponent/textandbuttons.dart';
 import 'package:flutter_application_1/pages/homepage.dart';
 import 'package:flutter_application_1/pages/signup.dart';
 class Loginpg extends StatefulWidget {
@@ -30,9 +30,9 @@ class _LoginpgState extends State<Loginpg> {
       appBar: AppBar(
         leading: IconButton(
           onPressed:() => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_ios,color: white,size: 20,),),
+          icon: const Icon(Icons.arrow_back_ios,color: white,size: 20,),),
         backgroundColor:green ,
-        title: Text("Log In",style: TextStyle(color: white),),
+        title: const Text("Log In",style: TextStyle(color: white),),
         centerTitle: true,
         ),
       body: SafeArea(
@@ -69,12 +69,12 @@ class _LoginpgState extends State<Loginpg> {
             ),
             InkWell(child: button(size: size, text: "Log In", color: green),
             onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context){
-              return HomeScreen();
+              return const HomeScreen();
             })),
             ),
             SizedBox(height: size.width*0.08,),
             displaytxt(s: "Or"),
-           Divider(
+           const Divider(
             height: 15,
             thickness: 1,
             indent: 15,
@@ -91,7 +91,7 @@ class _LoginpgState extends State<Loginpg> {
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return SignUppg();
+                    return const SignUppg();
                   }));
                 },)
               ],

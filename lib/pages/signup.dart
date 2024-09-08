@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
-import 'package:flutter_application_1/Uicomponent/text.dart';
+import 'package:flutter_application_1/Uicomponent/textandbuttons.dart';
 import 'package:flutter_application_1/pages/homepage.dart';
 class SignUppg extends StatefulWidget {
  
@@ -33,9 +33,9 @@ class _SignUppgState extends State<SignUppg> {
       appBar: AppBar(
         leading: IconButton(
           onPressed:() => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_ios,color: white,size: 20,),),
+          icon: const Icon(Icons.arrow_back_ios,color: white,size: 20,),),
         backgroundColor:green ,
-        title: Text("Sign Up",style: TextStyle(color: white),),
+        title: const Text("Sign Up",style: TextStyle(color: white),),
         centerTitle: true,
         ),
       body: SafeArea(
@@ -53,12 +53,12 @@ class _SignUppgState extends State<SignUppg> {
             
             InkWell(child: button(size: size, text: "Sign Up", color: green),
             onTap: () =>  Navigator.push(context,MaterialPageRoute(builder: (context){
-              return HomeScreen();
+              return const HomeScreen();
             })),
             ),
             SizedBox(height: size.width*0.08,),
             displaytxt(s: "Or"),
-           Divider(
+           const Divider(
             height: 15,
             thickness: 1,
             indent: 15,

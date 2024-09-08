@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
-import 'package:flutter_application_1/Uicomponent/text.dart';
+import 'package:flutter_application_1/Uicomponent/textandbuttons.dart';
 import 'package:flutter_application_1/pages/login_signup.dart';
 
 class Welcome extends StatelessWidget {

@@ -6,10 +6,10 @@ class ProductSection extends StatelessWidget {
   final List<Product> products;
 
   const ProductSection({
-    Key? key,
+    super.key,
     required this.title,
     required this.products,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
