@@ -98,7 +98,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               });
               showPopover(context: context, bodyBuilder: (context)=>const Menueitems(),
               width: MediaQuery.of(context).size.width*0.3,
-              height: MediaQuery.of(context).size.height*0.15
+              height: MediaQuery.of(context).size.height*0.25
               
               );
             },

@@ -1,10 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/firebase_options.dart';
+import 'package:flutter_application_1/pages/displayFarmerlist.dart';
 import 'package:flutter_application_1/pages/homepage.dart';
-import 'package:flutter_application_1/pages/signup.dart';
+import 'package:flutter_application_1/pages/signup_as_merchant.dart';
 import 'package:flutter_application_1/pages/welcome.dart';
 import 'package:flutter_application_1/userwidgets/framerprofile.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -23,7 +28,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: FarmerList(cat: "Fruit", crop: "Orange"),
     );
   }
 }

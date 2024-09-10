@@ -13,7 +13,7 @@ class Services extends StatefulWidget {
 }
 
 class _ServicesState extends State<Services> {
-late List<Categorymodel>category=widget.farmermodel.farmercroplist;
+late List<Categorymodel>category=widget.farmermodel.farmercroplist!;
 TextEditingController quant=TextEditingController();
 @override
   void dispose() {

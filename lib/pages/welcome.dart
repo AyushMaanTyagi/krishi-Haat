@@ -50,7 +50,7 @@ class Welcome extends StatelessWidget {
                   child: button(size:  size,text:  "Merchant",color:  Colors.green),
                   onTap: () => {
                     Navigator.push(context,MaterialPageRoute(builder: (context) {
-                      return LoginSignup(size: size,);
+                      return LoginSignup(size: size,user:"Merchant");
                     }))
                   },
                 ),
@@ -61,7 +61,7 @@ class Welcome extends StatelessWidget {
                   child: button(size:  size,text:  "Farmer",color:  Colors.white),
                   onTap: () => {
                     Navigator.push(context,MaterialPageRoute(builder: (context) {
-                      return LoginSignup(size: size,);
+                      return LoginSignup(size: size,user: "Farmer",);
                     }))
                   },
                 )

@@ -1,16 +1,18 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Firebase/auth.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
 import 'package:flutter_application_1/Uicomponent/textandbuttons.dart';
 import 'package:flutter_application_1/pages/homepage.dart';
-class SignUppg extends StatefulWidget {
+class SignUppgFarm extends StatefulWidget {
  
- const SignUppg({super.key});
+ const SignUppgFarm({super.key});
 
   @override
-  State<SignUppg> createState() => _SignUppgState();
+  State<SignUppgFarm> createState() => _SignUppgFarmState();
 }
 
-class _SignUppgState extends State<SignUppg> {
+class _SignUppgFarmState extends State<SignUppgFarm> {
   final TextEditingController emailC =TextEditingController();
   final TextEditingController passC =TextEditingController();
   final TextEditingController Cpass =TextEditingController();
@@ -48,13 +50,33 @@ class _SignUppgState extends State<SignUppg> {
             SizedBox(height: size.width*0.1,),
             Inputfile(label: "Email",controller: emailC,hintText:  "Text your email"),
             Inputfile(label: "Password",controller: passC,obscureText: true,hintText: "Text your password"),
-            Inputfile(label: "Confirm Password",controller: passC,obscureText: true,hintText: "Text your password"),
+            Inputfile(label: "Confirm Password",controller: Cpass,obscureText: true,hintText: "Text your password"),
             SizedBox(height: size.width*0.04,),
             
             InkWell(child: button(size: size, text: "Sign Up", color: green),
-            onTap: () =>  Navigator.push(context,MaterialPageRoute(builder: (context){
-              return const HomeScreen();
-            })),
+            onTap: () =>  
+            {
+              if(emailC.text.trim()==""||passC.text.trim()==""||Cpass.text.trim()=="")
+              {
+                getScaffold("Please fill all the details", context, Colors.red.shade400)
+              }  
+              else if(passC.text.trim()!=Cpass.text.trim())
+              {
+                getScaffold("Passwords do not match", context, Colors.red.shade400)
+              }
+              else
+              {
+                FarmerAuthorization(
+                  emailC.text.trim(),
+                  passC.text.trim(), 
+                  "Null pic", 
+                  "Null Uid", 
+                  "Null name", 
+                   [], 
+                  FirebaseAuth.instance, 
+                  context).signUpWithEmail()
+              }
+            }
             ),
             SizedBox(height: size.width*0.08,),
             displaytxt(s: "Or"),

@@ -115,3 +115,20 @@ TextField Textfield({required TextEditingController value}) {
                 );
 }
 
+getScaffold(String msg,BuildContext context, Color color)
+{
+  return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg),
+  backgroundColor: color,
+  ));
+}
+
+Widget displaynameAndPrice(String name, String price)
+{
+  return
+  Column(
+    children: [
+      displaytxt(s: name,fs: 20,color: black2),
+      displaytxt(s: price,fs: 18,color: black,fw: FontWeight.w900)
+    ],
+  );
+}

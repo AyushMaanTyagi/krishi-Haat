@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Firebase/auth.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
 import 'package:flutter_application_1/Uicomponent/textandbuttons.dart';
 class Menueitems extends StatelessWidget {
@@ -30,6 +32,16 @@ class Menueitems extends StatelessWidget {
           //child: displaytxt(s: "History"),
           color: green,
           child: displaytxt(s: "Profile",fs: 18,color: white),
+        ),
+        const SizedBox(height: 5,),
+         Container(
+          height: 30,
+          width: MediaQuery.of(context).size.width*0.3,
+          //child: displaytxt(s: "History"),
+          color: green,
+          child: InkWell(
+          onTap: () => LoginMethod(context,FirebaseAuth.instance).logout()  ,
+          child: displaytxt(s: "Log OUt",fs: 18,color: white)),
         ),
       ],
     );
