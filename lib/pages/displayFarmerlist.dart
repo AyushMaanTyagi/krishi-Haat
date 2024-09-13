@@ -205,7 +205,7 @@ class _FarmerListState extends State<FarmerList> {
                       borderRadius: BorderRadius.circular(12)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CircleAvatar(child:Image.asset(newlist[index].pic!),radius: 40,),
                 (cat=="Vegetables")?displaynameAndPrice(newlist[index].name!, newlist[index].Farmerkicrops![0][crop]):displaynameAndPrice(newlist[index].name!, newlist[index].Farmerkicrops![1][crop]),
