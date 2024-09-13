@@ -209,7 +209,11 @@ class _FarmerListState extends State<FarmerList> {
                         children: [
                           CircleAvatar(child:Image.asset(newlist[index].pic!),radius: 40,),
                 (cat=="Vegetables")?displaynameAndPrice(newlist[index].name!, newlist[index].Farmerkicrops![0][crop]):displaynameAndPrice(newlist[index].name!, newlist[index].Farmerkicrops![1][crop]),
-                          Icon(FontAwesomeIcons.chevronRight,size: 15,)
+                          InkWell(child: Icon(FontAwesomeIcons.chevronRight,size: 15,),
+                          onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                            return FarmerProfile(size: size, farmermodel: newlist[index]);
+                          })),
+                          )
                         ],
                       ),
                     );
