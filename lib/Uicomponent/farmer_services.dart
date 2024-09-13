@@ -43,7 +43,7 @@ TextEditingController quant=TextEditingController();
                 trailing: SizedBox(
                   width: widget.size.width*0.4,
                   height: widget.size.height*0.05,
-                  child: Textfield(value: quant)),
+                  child: Textfield()),
               ),
             )),
             );
