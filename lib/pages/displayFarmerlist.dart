@@ -203,18 +203,21 @@ class _FarmerListState extends State<FarmerList> {
                       color: white,
                       border: Border.all(color: black),
                       borderRadius: BorderRadius.circular(12)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          CircleAvatar(child:Image.asset(newlist[index].pic!),radius: 40,),
-                (cat=="Vegetables")?displaynameAndPrice(newlist[index].name!, newlist[index].Farmerkicrops![0][crop]):displaynameAndPrice(newlist[index].name!, newlist[index].Farmerkicrops![1][crop]),
-                          InkWell(child: Icon(FontAwesomeIcons.chevronRight,size: 15,),
-                          onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                            return FarmerProfile(size: size, farmermodel: newlist[index]);
-                          })),
-                          )
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 8,right: 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            CircleAvatar(child:Image.asset(newlist[index].pic!),radius: 40,),
+                                        (cat=="Vegetables")?displaynameAndPrice(newlist[index].name!, newlist[index].Farmerkicrops![0][crop]):displaynameAndPrice(newlist[index].name!, newlist[index].Farmerkicrops![1][crop]),
+                            InkWell(child: Icon(FontAwesomeIcons.chevronRight,size: 15,),
+                            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                              return FarmerProfile(size: size, farmermodel: newlist[index]);
+                            })),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   }),
