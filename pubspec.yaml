@@ -41,7 +41,6 @@ dependencies:
   firebase_auth: ^5.2.0
   cloud_firestore: ^5.4.0
   flutter_svg: ^1.0.0
-  carousel_slider: ^4.0.0
   popover: ^0.3.0+1
 
 dev_dependencies:

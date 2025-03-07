@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
 import 'package:flutter_application_1/Uicomponent/textandbuttons.dart';
 import 'package:flutter_application_1/pages/loginpg.dart';
-import 'package:flutter_application_1/pages/signup.dart';
+import 'package:flutter_application_1/pages/signup_as_farmer.dart';
+import 'package:flutter_application_1/pages/signup_as_merchant.dart';
 
 class LoginSignup extends StatelessWidget {
   final Size size;
-   const LoginSignup({super.key,required this.size});
+  final String user;
+   const LoginSignup({super.key,required this.size, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -41,15 +43,24 @@ class LoginSignup extends StatelessWidget {
             InkWell(child: button(size: size,text:  "Log In",color:  green),
             
             onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context){
-              return const Loginpg();
+              return  Loginpg(user: user,);
             })),
             ),
             const SizedBox(height: 15,),
             InkWell(child: button(size: size,text:  "Sign Up",color:  white),
             
-            onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context){
-              return const SignUppg();
-            })),
+            onTap: () => {
+              if(user=="Merchant")
+              {Navigator.push(context,MaterialPageRoute(builder: (context){
+              return  SignUppg(user: user,);
+            })),}
+            else
+            {
+              Navigator.push(context,MaterialPageRoute(builder: (context){
+              return const SignUppgFarm();
+            }))
+            }
+            }
             ),
           displaytxt(s: "Or"),
            const Divider(

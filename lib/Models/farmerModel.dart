@@ -1,9 +1,12 @@
 import 'package:flutter_application_1/Models/CategoryModel.dart';
 
 class Farmermodel {
-  String name; // this is farmer name
+  String? uid;
+  String? name; // this is farmer name
   String? pic; // this is farmer's profile picture
-  List<Categorymodel>
+  String? pass;
+  String? email;
+  List<Categorymodel>?
       farmercroplist; // this list contains all the crops harvested by farmer and uploaded on our app to sell
 
   // Categorymodel??
@@ -16,21 +19,27 @@ class Farmermodel {
   // This list contains all the edible item sold by particular farmer
 
   Farmermodel(
-      {required this.farmercroplist, required this.name, required this.pic,required this.Farmerkicrops});
+      {required this.uid,required this.farmercroplist,required this.pass ,required this.name, required this.pic,required this.Farmerkicrops,required this.email});
 
-  
+  Farmermodel.fromMap(Map<String, dynamic>map)
+  {
+    uid=map['uid'];
+    name=map['name'];
+    email=map['email'];
+    pass=map['pass'];
+    pic=map['pic'];
+    farmercroplist=map['farmercroplist'];
+  }
+
+
+ 
+
 
   // How to access this list to pass its values as parameter in app ui?
   // ex. farmers[0].name=Ramesh Kumar
   // farmers[0].farmercroplist[0].name=Gobhi
 
-  // Map<String, dynamic>toMap()
-  // {
-  //   return {
-  //     "name":name,
-  //     "pic":pic,
-  //   };
-  // }
-  List<Map<dynamic,dynamic>>Farmerkicrops=[{'Gobhi':'20/5kg','Onion':'30/5kg','Banana':'12/3dozen'},{'Orange':'13/5kg'}];
+  
+  List<Map<dynamic,dynamic>>?Farmerkicrops=[{'Gobhi':'20/5kg','Onion':'30/5kg','Banana':'12/3dozen'},{'Orange':'13/5kg'}];
  
 }

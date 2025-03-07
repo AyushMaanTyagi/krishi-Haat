@@ -1,10 +1,15 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Firebase/auth.dart';
 import 'package:flutter_application_1/Uicomponent/helpful.dart';
 import 'package:flutter_application_1/Uicomponent/textandbuttons.dart';
 import 'package:flutter_application_1/pages/homepage.dart';
-import 'package:flutter_application_1/pages/signup.dart';
+import 'package:flutter_application_1/pages/signup_as_merchant.dart';
 class Loginpg extends StatefulWidget {
- const Loginpg({super.key});
+  final String user;
+ const Loginpg({super.key, required this.user});
 
   @override
   State<Loginpg> createState() => _LoginpgState();
@@ -13,6 +18,7 @@ class Loginpg extends StatefulWidget {
 class _LoginpgState extends State<Loginpg> {
   final TextEditingController emailC =TextEditingController();
   final TextEditingController passC =TextEditingController();
+  
 @override
   void dispose() {
     super.dispose();
@@ -68,9 +74,41 @@ class _LoginpgState extends State<Loginpg> {
               ],
             ),
             InkWell(child: button(size: size, text: "Log In", color: green),
-            onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context){
-              return const HomeScreen();
-            })),
+            onTap: () async 
+            {
+              if(emailC.text.trim()==""||passC.text.trim()=="")
+              {
+                getScaffold("Please fill all the details", context, Colors.red.shade400);
+              }
+              else
+              {
+               String? isLoggedIn =await LoginMethod(context, FirebaseAuth.instance)
+               .loginUser(emailC.text.trim(), passC.text.trim());
+
+               if(isLoggedIn=="Farmer" && widget.user=="Farmer")
+               {
+                
+                getScaffold("Successfully Logged In", context, green);
+                Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(
+                builder: (context) =>
+                HomeScreen()),(Route<dynamic> route) => false);
+               }
+               else if(isLoggedIn=="Merchant" && widget.user=="Merchant")
+               {
+                getScaffold("Successfully Logged In", context, green);
+                Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(
+                builder: (context) =>
+                HomeScreen()),(Route<dynamic> route) => false);
+               }
+               else
+               {
+                log("Invalid Credential");
+               }
+              }
+
+            }
             ),
             SizedBox(height: size.width*0.08,),
             displaytxt(s: "Or"),
@@ -91,7 +129,7 @@ class _LoginpgState extends State<Loginpg> {
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return const SignUppg();
+                    return  SignUppg(user:widget.user,);
                   }));
                 },)
               ],

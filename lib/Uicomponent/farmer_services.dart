@@ -13,7 +13,7 @@ class Services extends StatefulWidget {
 }
 
 class _ServicesState extends State<Services> {
-late List<Categorymodel>category=widget.farmermodel.farmercroplist;
+late List<Categorymodel>category=widget.farmermodel.farmercroplist!;
 TextEditingController quant=TextEditingController();
 @override
   void dispose() {
@@ -43,7 +43,7 @@ TextEditingController quant=TextEditingController();
                 trailing: SizedBox(
                   width: widget.size.width*0.4,
                   height: widget.size.height*0.05,
-                  child: Textfield(value: quant)),
+                  child: Textfield()),
               ),
             )),
             );

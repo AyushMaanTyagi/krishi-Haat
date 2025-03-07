@@ -20,11 +20,11 @@ import 'package:flutter_application_1/Models/farmerModel.dart';
 
       if(cat=="Vegetables")
       {
-        givenFarmer.Farmerkicrops[0].containsKey(crop)==true?newlist.add(givenFarmer):0;
+        givenFarmer.Farmerkicrops![0].containsKey(crop)==true?newlist.add(givenFarmer):0;
       }
       else
       {
-        givenFarmer.Farmerkicrops[1].containsKey(crop)==true?newlist.add(givenFarmer):0;
+        givenFarmer.Farmerkicrops![1].containsKey(crop)==true?newlist.add(givenFarmer):0;
       }
     }
     log("newlist1:$newlist");

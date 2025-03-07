@@ -33,9 +33,9 @@ class _FarmerProfileState extends State<FarmerProfile> with TickerProviderStateM
             Container(
               height: widget.size.height / 4,
               width: double.infinity,
-              color: Colors.blue,
-              child: Center(child: displaytxt(s: widget.farmermodel.name,fs: 20,color: white)), // use farmer name here
+              color: Colors.blue, // use farmer name here
               margin: const EdgeInsets.symmetric(vertical: 5),
+              child: Center(child: displaytxt(s: widget.farmermodel.name!,fs: 20,color: white)),
             ),
             SizedBox(
               height: 50,
